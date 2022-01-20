@@ -4,3 +4,8 @@ main: ${project.groupId}.parkourgenerator.ParkourGenerator
 api-version: 1.13
 authors: [ carlodrift ]
 website: ${project.url}
+commands:
+  parkour:
+    permission: op
+    description: A ParkourGenerator provided command.
+    usage: /parkour

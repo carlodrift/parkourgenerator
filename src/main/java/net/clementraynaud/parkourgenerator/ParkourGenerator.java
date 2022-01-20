@@ -19,6 +19,7 @@
 
 package net.clementraynaud.parkourgenerator;
 
+import net.clementraynaud.parkourgenerator.commands.ParkourCommand;
 import net.clementraynaud.parkourgenerator.util.UpdateChecker;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -40,6 +41,8 @@ public final class ParkourGenerator extends JavaPlugin {
     public void onEnable() {
         setInstance(this);
         saveDefaultConfig();
+        this.getCommand("parkour").setExecutor(new ParkourCommand());
+        this.getCommand("parkour").setTabCompleter(new ParkourCommand());
         new Metrics(this, 14005);
         new UpdateChecker(this, 83295).getVersion(version -> {
             if (!this.getDescription().getVersion().equals(version)) {
